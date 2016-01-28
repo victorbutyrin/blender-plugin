@@ -1,4 +1,4 @@
-bl_info = {
+﻿bl_info = {
     "name": "Paving 64",
     "author": "Victor Butyrin (publius)",
     "version": (1, 5, 1),
@@ -44,7 +44,7 @@ def createObject(name, vertices, faces):
 	me.update()
 	return ob
 
-class PavingCOperator(bpy.types.Operator):
+class PavingOperator(bpy.types.Operator):
 	'''Paving 63 x 63 CWA terrain'''
 	bl_idname = 'mesh.add_64_object'
 	bl_label = 'Paving 9.92 square kilometers'
@@ -55,14 +55,14 @@ class PavingCOperator(bpy.types.Operator):
 		return {'FINISHED'}
 
 def menu_func(self, context):
-	self.layout.operator(PavingCOperator.bl_idname, icon = 'GRID')
+	self.layout.operator(PavingOperator.bl_idname, icon = 'GRID')
 
 def register():
-	bpy.utils.register_class(PavingCOperator)
+	bpy.utils.register_class(PavingOperator)
 	bpy.types.INFO_MT_mesh_add.append(menu_func)
 
 def unregister():
-	bpy.utils.unregister_class(PavingCOperator)
+	bpy.utils.unregister_class(PavingOperator)
 	bpy.types.INFO_MT_mesh_add.remove(menu_func)
 
 if __name__ == '__main__':
